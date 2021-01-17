@@ -17,7 +17,7 @@ function App() {
     useEffect(() => {
 
         fetch(
-            'http://api.openweathermap.org/data/2.5/weather?q=Egypte&lang=fr&units=metric&appid=69d025f108879fa590c728b4bb988809'
+            'http://api.openweathermap.org/data/2.5/weather?q=Paris&lang=fr&units=metric&appid=69d025f108879fa590c728b4bb988809'
         )
             .then((response) => response.json())
             .then((data) => {
@@ -31,7 +31,7 @@ function App() {
         var { humidity, feels_like, temp_max, temp_min, temp } = data.main
         var { description, icon } = data.weather[0].icon;
 
-        var iconLink = 'http://openweathermap.org/img/wn/${icon}.png'
+        var iconLink = 'http://openweathermap.org/img/wn/03n.png'
     }
 
 console.log(icon)
@@ -48,8 +48,9 @@ console.log(icon)
                 <h1 className="py-2">{temp}&deg;</h1>
 
                 <h3>
-                    <span className="px-4">{temp_min}&deg;</span>
-                    <span className="px-4">{temp_max}&deg;</span>
+                    <span className="px-4">Max : {temp_max}&deg;</span>
+                    <span className="px-4">Min : {temp_min}&deg;</span>
+
 
                 </h3>
 
