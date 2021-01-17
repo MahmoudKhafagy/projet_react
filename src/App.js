@@ -1,25 +1,63 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+
+import React from "react";
+
+import "./App.css";
+import "weather-icons/css/weather-icons.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
+    let[data, setData] = useState()
+
+
+    useEffect(() => {
+
+        fetch(
+            'http://api.openweathermap.org/data/2.5/weather?q=Egypte&lang=fr&units=metric&appid=69d025f108879fa590c728b4bb988809'
+        )
+            .then((response) => response.json())
+            .then((data) => {
+                setData(data)
+            })
+    },[]);
+
+    console.log(data)
+
+    if(data){
+        var { humidity, feels_like, temp_max, temp_min, temp } = data.main
+        var { description, icon } = data.weather[0].icon;
+
+        var iconLink = 'http://openweathermap.org/img/wn/${icon}.png'
+    }
+
+console.log(icon)
+
+
+    return (
+        <div className="container">
+            <div className="cards">
+                <h1>London</h1>
+                <h5 className="py-4">
+                    <img src={ iconLink }/>
+                </h5>
+
+                <h1 className="py-2">{temp}&deg;</h1>
+
+                <h3>
+                    <span className="px-4">{temp_min}&deg;</span>
+                    <span className="px-4">{temp_max}&deg;</span>
+
+                </h3>
+
+                <h4 className="py-3">
+                    {description}
+                </h4>
+            </div>
+        </div>
+    );
+}
 export default App;
