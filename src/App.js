@@ -40,7 +40,7 @@ console.log(icon)
     return (
         <div className="container">
             <div className="cards">
-                <h1>London</h1>
+                <h1>Paris</h1>
                 <h5 className="py-4">
                     <img src={ iconLink }/>
                 </h5>
