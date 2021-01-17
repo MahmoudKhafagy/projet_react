@@ -48,8 +48,8 @@ console.log(icon)
                 <h1 className="py-2">{temp}&deg;</h1>
 
                 <h3>
-                    <span className="px-4">Max : {temp_max}&deg;</span>
-                    <span className="px-4">Min : {temp_min}&deg;</span>
+                    <span className="px-4">Max: {temp_max}&deg;</span>
+                    <span className="px-4">Min: {temp_min}&deg;</span>
 
 
                 </h3>
